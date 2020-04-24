@@ -4,8 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 import 'reusable_card.dart';
+import 'calculator_brain.dart';
 
 class ResultsPage extends StatelessWidget {
+
+  ResultsPage({@required this.bmiResult,@required this.resultText,@required this.interpretation});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,18 +47,18 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Normal',
+                    resultText.toUpperCase(),
                     style: TextStyle(color: Colors.green, fontSize: 20.0),
                   ),
                   Text(
-                    '18.3',
+                    bmiResult,
                     style: TextStyle(
                       fontSize: 100.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'Your BMI is quite low you should eat more',
+                   interpretation.toUpperCase(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 22.0,
